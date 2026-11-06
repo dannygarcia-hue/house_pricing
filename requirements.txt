@@ -35,6 +35,11 @@ typer==0.27.3
 ruff==0.17.3
 pytest==9.2.0            # suite de tests/ para house_pricing.modeling.predict
 
+# --- Seguimiento de experimentos ---
+# Arrastra un árbol de dependencias grande y propio (flask, sqlalchemy, pydantic,
+# pyarrow...) que no se fija aquí: las resuelve pip a partir de esta versión.
+mlflow==3.18.0           # registro del torneo y alias champion/challenger
+
 # --- Documentación entregable ---
 python-docx==1.2.0       # genera reports/proceso.docx y reports/prompts.docx
 lxml==6.1.3              # dependencia de python-docx, fijada para que el entorno sea reproducible
