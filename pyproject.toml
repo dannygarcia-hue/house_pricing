@@ -1,0 +1,44 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "house_pricing"
+version = "0.0.1"
+description = "Prediccion de precios de vivienda"
+authors = [
+  { name = "Danny Garcia" },
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License"
+]
+requires-python = "~=3.11.0"
+
+
+[tool.ruff]
+line-length = 99
+src = ["house_pricing"]
+# scripts/ y tests/ entran al lint: el PEP 8 del proyecto debe cubrir el script de
+# inferencia y sus pruebas, no solo el paquete.
+include = [
+    "pyproject.toml",
+    "house_pricing/**/*.py",
+    "scripts/**/*.py",
+    "tests/**/*.py",
+]
+
+[tool.ruff.lint]
+extend-select = ["I"]  # Add import sorting
+
+[tool.ruff.lint.per-file-ignores]
+# typer declara sus opciones llamando a typer.Option()/typer.Argument() en los valores
+# por defecto: es el idioma documentado de la librería, no el error que B008 persigue.
+"scripts/**/*.py" = ["B008"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["house_pricing"]
+force-sort-within-sections = true
+

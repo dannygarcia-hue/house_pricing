@@ -1,0 +1,190 @@
+TARGET: SalePrice
+TARGET_LOG: SalePrice_log
+MODEL_FEATURES:
+- GrLivArea
+- TotalBsmtSF
+- 1stFlrSF
+- GarageArea
+- YearBuilt
+- GarageYrBlt
+- YearRemodAdd
+- MasVnrArea
+- BsmtFinSF1
+- LotFrontage
+- OverallQual
+- ExterQual
+- KitchenQual
+- GarageCars
+- BsmtQual
+- FullBath
+- GarageFinish
+- TotRmsAbvGrd
+- FireplaceQu
+- Fireplaces
+- Neighborhood
+- Foundation
+- GarageType
+- MasVnrType
+- Exterior2nd
+- Exterior1st
+- SaleType
+- SaleCondition
+- MSZoning
+- HouseStyle
+FEATURE_GROUPS:
+  continuas:
+  - GrLivArea
+  - TotalBsmtSF
+  - 1stFlrSF
+  - GarageArea
+  - YearBuilt
+  - GarageYrBlt
+  - YearRemodAdd
+  - MasVnrArea
+  - BsmtFinSF1
+  - LotFrontage
+  discretas:
+  - OverallQual
+  - ExterQual
+  - KitchenQual
+  - GarageCars
+  - BsmtQual
+  - FullBath
+  - GarageFinish
+  - TotRmsAbvGrd
+  - FireplaceQu
+  - Fireplaces
+  categoricas:
+  - Neighborhood
+  - Foundation
+  - GarageType
+  - MasVnrType
+  - Exterior2nd
+  - Exterior1st
+  - SaleType
+  - SaleCondition
+  - MSZoning
+  - HouseStyle
+COLUMNAS_SALIDA:
+- GrLivArea
+- TotalBsmtSF
+- 1stFlrSF
+- GarageArea
+- YearBuilt
+- GarageYrBlt
+- YearRemodAdd
+- MasVnrArea
+- BsmtFinSF1
+- LotFrontage
+- OverallQual
+- ExterQual
+- KitchenQual
+- GarageCars
+- BsmtQual
+- FullBath
+- GarageFinish
+- TotRmsAbvGrd
+- FireplaceQu
+- Fireplaces
+- GarageYrBlt_na
+- Neighborhood_CollgCr
+- Neighborhood_Veenker
+- Neighborhood_Crawfor
+- Neighborhood_NoRidge
+- Neighborhood_Mitchel
+- Neighborhood_Somerst
+- Neighborhood_NWAmes
+- Neighborhood_OldTown
+- Neighborhood_BrkSide
+- Neighborhood_Sawyer
+- Neighborhood_NridgHt
+- Neighborhood_NAmes
+- Neighborhood_SawyerW
+- Neighborhood_IDOTRR
+- Neighborhood_MeadowV
+- Neighborhood_Edwards
+- Neighborhood_Timber
+- Neighborhood_Gilbert
+- Neighborhood_StoneBr
+- Neighborhood_ClearCr
+- Neighborhood_NPkVill
+- Neighborhood_Blmngtn
+- Neighborhood_BrDale
+- Neighborhood_SWISU
+- Neighborhood_Blueste
+- Foundation_PConc
+- Foundation_CBlock
+- Foundation_BrkTil
+- Foundation_Wood
+- Foundation_Slab
+- Foundation_Stone
+- GarageType_Attchd
+- GarageType_Detchd
+- GarageType_BuiltIn
+- GarageType_CarPort
+- GarageType_None
+- GarageType_Basment
+- GarageType_2Types
+- MasVnrType_BrkFace
+- MasVnrType_None
+- MasVnrType_Stone
+- MasVnrType_BrkCmn
+- Exterior2nd_VinylSd
+- Exterior2nd_MetalSd
+- Exterior2nd_Wd Shng
+- Exterior2nd_HdBoard
+- Exterior2nd_Plywood
+- Exterior2nd_Wd Sdng
+- Exterior2nd_CmentBd
+- Exterior2nd_BrkFace
+- Exterior2nd_Stucco
+- Exterior2nd_AsbShng
+- Exterior2nd_Brk Cmn
+- Exterior2nd_ImStucc
+- Exterior2nd_AsphShn
+- Exterior2nd_Stone
+- Exterior2nd_Other
+- Exterior2nd_CBlock
+- Exterior1st_VinylSd
+- Exterior1st_MetalSd
+- Exterior1st_Wd Sdng
+- Exterior1st_HdBoard
+- Exterior1st_BrkFace
+- Exterior1st_WdShing
+- Exterior1st_CemntBd
+- Exterior1st_Plywood
+- Exterior1st_AsbShng
+- Exterior1st_Stucco
+- Exterior1st_BrkComm
+- Exterior1st_AsphShn
+- Exterior1st_Stone
+- Exterior1st_ImStucc
+- Exterior1st_CBlock
+- SaleType_WD
+- SaleType_New
+- SaleType_COD
+- SaleType_ConLD
+- SaleType_ConLI
+- SaleType_CWD
+- SaleType_ConLw
+- SaleType_Con
+- SaleType_Oth
+- SaleCondition_Normal
+- SaleCondition_Abnorml
+- SaleCondition_Partial
+- SaleCondition_AdjLand
+- SaleCondition_Alloca
+- SaleCondition_Family
+- MSZoning_RL
+- MSZoning_RM
+- MSZoning_C (all)
+- MSZoning_FV
+- MSZoning_RH
+- HouseStyle_2Story
+- HouseStyle_1Story
+- HouseStyle_1.5Fin
+- HouseStyle_1.5Unf
+- HouseStyle_SFoyer
+- HouseStyle_SLvl
+- HouseStyle_2.5Unf
+- HouseStyle_2.5Fin

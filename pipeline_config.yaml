@@ -1,0 +1,137 @@
+# Configuración del pipeline de House Prices
+#
+# Las features se seleccionaron en el notebook 1.0-dg-analisis-exploratorio tomando
+# el top 10 de cada grupo según su métrica de asociación con SalePrice:
+#   - continuas y discretas -> |correlación de Pearson|
+#   - categóricas           -> η² (eta cuadrado, varianza del precio explicada)
+#
+# Uso:
+#   import yaml
+#   cfg = yaml.safe_load(open("pipeline_config.yaml", encoding="utf-8"))
+#   features = cfg["MODEL_FEATURES"]
+
+TARGET: SalePrice
+
+# Las 30 variables seleccionadas, en un solo arreglo.
+MODEL_FEATURES:
+  # --- continuas (10) ---
+  - GrLivArea
+  - GarageArea
+  - TotalBsmtSF
+  - 1stFlrSF
+  - YearBuilt
+  - YearRemodAdd
+  - GarageYrBlt
+  - MasVnrArea
+  - BsmtFinSF1
+  - LotFrontage
+  # --- discretas (10) ---
+  - OverallQual
+  - GarageCars
+  - FullBath
+  - TotRmsAbvGrd
+  - Fireplaces
+  - HalfBath
+  - BsmtFullBath
+  - BedroomAbvGr
+  - KitchenAbvGr
+  - PoolArea
+  # --- categóricas (10) ---
+  - Neighborhood
+  - ExterQual
+  - BsmtQual
+  - KitchenQual
+  - GarageFinish
+  - FireplaceQu
+  - Foundation
+  - GarageType
+  - BsmtFinType1
+  - HeatingQC
+
+# El mismo listado agrupado. El preprocesamiento difiere por grupo (las categóricas
+# necesitan codificación), así que conviene tenerlo separado.
+FEATURE_GROUPS:
+  continuas:
+    - GrLivArea
+    - GarageArea
+    - TotalBsmtSF
+    - 1stFlrSF
+    - YearBuilt
+    - YearRemodAdd
+    - GarageYrBlt
+    - MasVnrArea
+    - BsmtFinSF1
+    - LotFrontage
+  discretas:
+    - OverallQual
+    - GarageCars
+    - FullBath
+    - TotRmsAbvGrd
+    - Fireplaces
+    - HalfBath
+    - BsmtFullBath
+    - BedroomAbvGr
+    - KitchenAbvGr
+    - PoolArea
+  categoricas:
+    - Neighborhood
+    - ExterQual
+    - BsmtQual
+    - KitchenQual
+    - GarageFinish
+    - FireplaceQu
+    - Foundation
+    - GarageType
+    - BsmtFinType1
+    - HeatingQC
+
+# Valor de la métrica de cada variable, para trazabilidad.
+# Pearson para continuas y discretas; eta2 para categóricas.
+FEATURE_SCORES:
+  GrLivArea: 0.709
+  GarageArea: 0.623
+  TotalBsmtSF: 0.614
+  1stFlrSF: 0.606
+  YearBuilt: 0.523
+  YearRemodAdd: 0.507
+  GarageYrBlt: 0.486
+  MasVnrArea: 0.477
+  BsmtFinSF1: 0.386
+  LotFrontage: 0.352
+  OverallQual: 0.791
+  GarageCars: 0.640
+  FullBath: 0.561
+  TotRmsAbvGrd: 0.534
+  Fireplaces: 0.467
+  HalfBath: 0.284
+  BsmtFullBath: 0.227
+  BedroomAbvGr: 0.168
+  KitchenAbvGr: -0.136
+  PoolArea: 0.092
+  Neighborhood: 0.546
+  ExterQual: 0.477
+  BsmtQual: 0.465
+  KitchenQual: 0.457
+  GarageFinish: 0.306
+  FireplaceQu: 0.294
+  Foundation: 0.256
+  GarageType: 0.249
+  BsmtFinType1: 0.211
+  HeatingQC: 0.196
+
+# Reservas conocidas sobre esta selección. Ver ESTADO_PROYECTO.md para el detalle.
+REVISAR_ANTES_DE_MODELAR:
+  # 1453 de 1460 casas tienen PoolArea = 0; su r sale de 7 casas. Candidata a salir
+  # y ser reemplazada por OverallCond.
+  - PoolArea
+  # Pares con |corr| > 0.8 entre sí: aportan la información de una sola variable.
+  - [GarageArea, GarageCars]      # 0.882
+  - [GarageYrBlt, YearBuilt]      # 0.826
+  - [GrLivArea, TotRmsAbvGrd]     # 0.825
+  - [1stFlrSF, TotalBsmtSF]       # 0.820
+
+RUTAS:
+  raw: data/raw
+  interim: data/interim
+  processed: data/processed
+  modelos: models

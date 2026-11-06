@@ -1,0 +1,24 @@
+{
+  // Intérprete del proyecto: el entorno conda env_house_pricing.
+  // La ruta es absoluta y por tanto específica de esta máquina: al clonar el
+  // repositorio en otra, hay que ajustarla a la ubicación local del entorno.
+  "python.defaultInterpreterPath": "C:/Users/dgarc/anaconda3/envs/env_house_pricing/python.exe",
+
+  // Activar el entorno en cada terminal que se abra. Sin esto, Library\bin queda
+  // fuera del PATH y la multiplicación de matrices (numpy/BLAS) tumba el proceso.
+  "python.terminal.activateEnvironment": true,
+  "python.terminal.activateEnvInCurrentTerminal": true,
+
+  // Notebooks: ejecutar desde la raíz del proyecto para que las rutas de
+  // house_pricing.config resuelvan igual que en los scripts.
+  "jupyter.notebookFileRoot": "${workspaceFolder}",
+
+  // El paquete del proyecto es importable desde la raíz.
+  "python.analysis.extraPaths": ["."],
+
+  "notebook.output.textLineLimit": 60,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.ipynb_checkpoints": true
+  }
+}

@@ -1,0 +1,9 @@
+modelo,familia,rmse_log_cv,sd_pliegues,rmse_log_entrena,brecha,rmse_log_val,rmse_real_val,nrmse_%,coherencia,config,seg
+Gradient Boosting,Ensamble de árboles,0.1259,0.0136,0.0745,0.0514,0.1438,20282.0,4.06,0.0179,8,83.0
+ElasticNet,Regresión lineal,0.1261,0.0092,0.117,0.009,0.1401,20042.0,4.01,0.014,21,52.0
+Lasso,Regresión lineal,0.1265,0.0102,0.1153,0.0112,0.1399,20127.0,4.02,0.0134,6,15.0
+Ridge,Regresión lineal,0.1271,0.0105,0.1163,0.0107,0.1425,20371.0,4.07,0.0154,7,18.0
+Random Forest,Ensamble de árboles,0.1332,0.017,0.0499,0.0833,0.1538,22240.0,4.45,0.0206,9,125.0
+Hist Gradient Boosting,Ensamble de árboles,0.1336,0.0186,0.0869,0.0467,0.1538,22384.0,4.48,0.0202,8,50.0
+Regresión lineal,Regresión lineal,0.1338,0.0142,0.1129,0.0209,0.1445,21228.0,4.24,0.0107,1,17.0
+Red neuronal (MLP),Red neuronal,0.1374,0.0146,0.1203,0.017,0.1447,21503.0,4.3,0.0073,6,159.0

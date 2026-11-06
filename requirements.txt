@@ -1,0 +1,43 @@
+# Dependencias de house_pricing
+# Entorno de referencia: conda env "env_house_pricing" con Python 3.11
+#
+#   conda create -n env_house_pricing -c conda-forge python=3.11 -y
+#   conda activate env_house_pricing
+#   pip install -r requirements.txt
+#
+# Versiones fijadas a las instaladas y verificadas en ese entorno.
+
+# --- Análisis de datos ---
+numpy==2.4.6
+pandas==3.1.0
+matplotlib==3.11.2
+scipy==1.17.1            # test F (ANOVA) para la métrica η² de las categóricas
+feature-engine==1.9.4    # transformadores del pipeline de feature engineering
+joblib==1.6.0            # serialización del pipeline ajustado
+seaborn==0.13.2          # boxplot + stripplot de las variables discretas
+scikit-learn==1.9.1
+jinja2==3.1.6            # requerido por pandas .style en los notebooks
+
+# --- Notebooks ---
+ipykernel==7.4.0
+jupyter==1.1.1
+notebook==7.6.3
+nbconvert==7.17.2
+
+# --- Paquete house_pricing (config.py, dataset.py, modeling/) ---
+pyyaml==6.0.3            # lectura de pipeline_config.yaml
+python-dotenv==1.2.4
+loguru==0.7.3
+tqdm==4.70.1
+typer==0.27.3
+
+# --- Calidad de código (objetivos lint/format del Makefile) ---
+ruff==0.17.3
+pytest==9.2.0            # suite de tests/ para house_pricing.modeling.predict
+
+# --- Documentación entregable ---
+python-docx==1.2.0       # genera reports/proceso.docx y reports/prompts.docx
+lxml==6.1.3              # dependencia de python-docx, fijada para que el entorno sea reproducible
+
+# --- El propio proyecto, en modo editable ---
+-e .
