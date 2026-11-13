@@ -213,3 +213,10 @@ data/**
 models/**
 !models/**/
 !models/**/.gitkeep
+
+# MLflow: la base de seguimiento y los artefactos de los runs. Son el resultado de
+# ejecutar los notebooks 4.0 y 5.0, igual que los modelos, y se regeneran con ellos.
+# La base crece con cada ejecución y los artefactos incluyen los pipelines serializados.
+mlflow.db
+mlruns/
+mlartifacts/
